@@ -28,21 +28,20 @@ function switchTestimonial() {
 setInterval(switchTestimonial, 5000);
 
 // -----------------------------
-// Delivery Area Checker
+// Delivery Area Checker (in Delivery Section)
 // -----------------------------
-document.getElementById('checkDelivery').addEventListener('click', function () {
-  let zipCode = document.getElementById('zipInput').value;
-  let deliveryZones = ['110001', '110002', '110003']; // Add your delivery zip codes
-
+document.getElementById('check-radius').addEventListener('click', function () {
+  let zipCode = document.getElementById('zip-code').value;
+  let deliveryZones = ['110001', '110002', '110003']; // Update with your zip codes
   if (deliveryZones.includes(zipCode)) {
-    alert('✅ Good news! We deliver to your area.');
+    alert('✅ We deliver to your area!');
   } else {
     alert('❌ Sorry, we do not deliver to this location yet.');
   }
 });
 
 // -----------------------------
-// Subscription Plan Selection
+// Subscription Plan Selection (Optional)
 // -----------------------------
 document.querySelectorAll('.plan-card').forEach(card => {
   card.addEventListener('click', function () {
@@ -50,15 +49,3 @@ document.querySelectorAll('.plan-card').forEach(card => {
     this.classList.add('selected');
   });
 });
-
-// -----------------------------
-// Floating WhatsApp Button
-// -----------------------------
-document.querySelector('.floating-whatsapp').addEventListener('click', function () {
-  window.open('https://wa.me/1234567890', '_blank'); // Change number
-});
-
-// -----------------------------
-// Initialize AOS (Animate on Scroll)
-// -----------------------------
-AOS.init();

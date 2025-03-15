@@ -15,20 +15,33 @@ body {
 }
 
 /* ----------------------------- */
-/* Glass Navbar                  */
+/* Utility Container             */
+/* ----------------------------- */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem 0;
+}
+
+/* ----------------------------- */
+/* Glassmorphism Navbar          */
 /* ----------------------------- */
 .glass-navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 15px 0;
+  background: rgba(20, 20, 20, 0.8);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+.glass-navbar .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  padding: 15px 10%;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  z-index: 1000;
 }
 
 .logo {
@@ -40,12 +53,13 @@ body {
 .nav-list {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 30px;
+  align-items: center;
 }
 
 .nav-list li a {
   text-decoration: none;
-  color: #ffffff;
+  color: #ddd;
   font-weight: 500;
   transition: color 0.3s ease;
 }
@@ -54,28 +68,58 @@ body {
   color: #2ecc71;
 }
 
+/* Dropdown Menu */
+.nav-list .dropdown {
+  position: relative;
+}
+
+.nav-list .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(20, 20, 20, 0.95);
+  padding: 10px 0;
+  border-radius: 5px;
+  display: none;
+  min-width: 180px;
+  z-index: 1001;
+}
+
+.nav-list .dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li {
+  padding: 8px 20px;
+}
+
+.dropdown-menu li a {
+  color: #ddd;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-menu li a:hover {
+  color: #2ecc71;
+}
+
 /* ----------------------------- */
-/* Hero Section                  */
+/* Hero Section with Image BG    */
 /* ----------------------------- */
 .hero-section {
   position: relative;
   height: 100vh;
+  background: url('assets/hero-bg.jpg') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  overflow: hidden;
-}
-
-.hero-bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .hero-overlay {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
@@ -83,8 +127,9 @@ body {
 
 .hero-content {
   position: relative;
-  z-index: 10;
+  z-index: 2;
   max-width: 600px;
+  padding: 0 1rem;
 }
 
 .hero-content h1 {
@@ -96,7 +141,7 @@ body {
 .hero-content p {
   font-size: 1.2rem;
   margin-bottom: 30px;
-  color: #fff;
+  line-height: 1.5;
 }
 
 .cta-button {
@@ -115,12 +160,12 @@ body {
 }
 
 /* ----------------------------- */
-/* Subscription Plans            */
+/* Plans Section                 */
 /* ----------------------------- */
 .plans-section {
-  text-align: center;
-  padding: 80px 10%;
   background: #1e1e1e;
+  padding: 80px 0;
+  text-align: center;
 }
 
 .plans-section h2 {
@@ -166,15 +211,82 @@ body {
   font-size: 1.2rem;
   font-weight: bold;
   margin-top: 10px;
-  color: #ffffff;
+  color: #fff;
 }
 
 /* ----------------------------- */
-/* Testimonial Section           */
+/* Info Sections (Delivery, FAQ, Support) */
+/* ----------------------------- */
+.info-section {
+  background: #1e1e1e;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.info-section h2 {
+  font-size: 2.5rem;
+  color: #2ecc71;
+  margin-bottom: 20px;
+}
+
+.info-section p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #ddd;
+}
+
+.faq-list {
+  list-style: none;
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #ddd;
+  padding: 0;
+}
+
+.faq-list li {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #444;
+  padding-bottom: 0.5rem;
+}
+
+/* Radius Checker (within Delivery Section) */
+.radius-checker {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.radius-checker input {
+  padding: 10px;
+  width: 250px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background: #222;
+  color: #fff;
+}
+
+.radius-checker button {
+  padding: 10px 20px;
+  background: #2ecc71;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.radius-checker button:hover {
+  background: #27ae60;
+}
+
+/* ----------------------------- */
+/* Testimonials Section          */
 /* ----------------------------- */
 .testimonials-section {
-  padding: 80px 10%;
   background: #121212;
+  padding: 80px 0;
   text-align: center;
 }
 
@@ -185,21 +297,21 @@ body {
 }
 
 .testimonial-slider {
-  display: flex;
-  overflow: hidden;
   position: relative;
   max-width: 600px;
-  margin: 0 auto;
+  margin: auto;
+  overflow: hidden;
 }
 
 .testimonial {
-  flex: 0 0 100%;
+  position: absolute;
+  width: 100%;
+  opacity: 0;
   transition: opacity 0.5s ease;
   font-size: 1.2rem;
   color: #ddd;
-  opacity: 0;
-  position: absolute;
-  width: 100%;
+  text-align: center;
+  padding: 1rem;
 }
 
 .testimonial.active {
@@ -211,9 +323,9 @@ body {
 /* Contact Section               */
 /* ----------------------------- */
 .contact-section {
-  text-align: center;
-  padding: 80px 10%;
   background: #1e1e1e;
+  padding: 80px 0;
+  text-align: center;
 }
 
 .contact-section h2 {
@@ -222,39 +334,28 @@ body {
   margin-bottom: 20px;
 }
 
-.whatsapp-button {
-  display: inline-block;
-  padding: 12px 30px;
-  background: #25d366;
-  color: #fff;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s ease;
+.contact-section p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #ddd;
 }
 
-.whatsapp-button:hover {
-  background: #1abc9c;
+.contact-details p,
+.contact-details a {
+  color: #ddd;
+  font-size: 1rem;
+  margin: 0.5rem 0;
 }
 
-/* ----------------------------- */
-/* Floating WhatsApp Button      */
-/* ----------------------------- */
-.floating-whatsapp {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25d366;
-  color: #fff;
-  padding: 15px;
-  border-radius: 50%;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
+.social-media a {
+  color: #ddd;
+  margin: 0 0.5rem;
   font-size: 1.5rem;
+  transition: color 0.3s ease;
 }
 
-.floating-whatsapp:hover {
-  transform: scale(1.1);
+.social-media a:hover {
+  color: #2ecc71;
 }
 
 /* ----------------------------- */
@@ -262,7 +363,7 @@ body {
 /* ----------------------------- */
 .site-footer {
   background: #222;
-  color: #fff;
+  padding: 20px 0;
   text-align: center;
-  padding: 20px;
+  color: #aaa;
 }
