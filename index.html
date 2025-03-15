@@ -1,89 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fresh Green Juice</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fresh Green Juice</title>
+  
+  <!-- External Styles & Icons -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <!-- AOS (Animate on Scroll) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 </head>
-<img src="hero.jpg" loading="lazy" alt="Green Juice">
 <body>
 
-    <!-- Header -->
-    <header>
-        <div class="logo">🍃 Green Juice</div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#subscription">Subscription</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Header & Navigation -->
+  <header class="glass-navbar">
+    <div class="logo">🍃 Fresh Green Juice</div>
+    <nav>
+      <ul class="nav-list">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#plans">Plans</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <h1>Pure. Fresh. Organic.</h1>
-        <p>Healthy green juice delivered to your doorstep.</p>
-        <a href="#subscription" class="cta-button">Subscribe Now</a>
-    </section>
+  <!-- Hero Section with Video Background -->
+  <section id="hero" class="hero-section">
+    <video autoplay muted loop class="hero-bg">
+      <source src="assets/hero-bg.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content" data-aos="fade-up">
+      <h1>Pure. Fresh. Organic.</h1>
+      <p>Your daily dose of nature’s best.</p>
+      <a href="#plans" class="cta-button">Subscribe Now</a>
+    </div>
+  </section>
 
-    <!-- Subscription Section -->
-    <section id="subscription">
-        <h2>Choose Your Plan</h2>
-        <div class="plans">
-            <div class="plan">
-                <h3>Daily Plan</h3>
-                <p>Fresh juice every morning.</p>
-                <span>₹XX/day</span>
-            </div>
-            <div class="plan">
-                <h3>Weekly Plan</h3>
-                <p>Delivered Monday to Friday.</p>
-                <span>₹XX/week</span>
-            </div>
-            <div class="plan">
-                <h3>Monthly Plan</h3>
-                <p>Stay healthy all month.</p>
-                <span>₹XX/month</span>
-            </div>
-        </div>
-        <div class="radius-checker">
-            <input type="text" id="zip-code" placeholder="Enter your ZIP code">
-            <button id="check-radius">Check Availability</button>
-        </div>
-        
-    </section>
+  <!-- Subscription Plans -->
+  <section id="plans" class="plans-section">
+    <h2 data-aos="fade-up">Choose Your Plan</h2>
+    <div class="plans-container">
+      <div class="plan-card" data-aos="flip-left">
+        <h3>Daily Plan</h3>
+        <p>Enjoy fresh juice every morning.</p>
+        <span>₹XX/day</span>
+      </div>
+      <div class="plan-card" data-aos="flip-left">
+        <h3>Weekly Plan</h3>
+        <p>Juice delivered Monday to Friday.</p>
+        <span>₹XX/week</span>
+      </div>
+      <div class="plan-card" data-aos="flip-left">
+        <h3>Monthly Plan</h3>
+        <p>Stay healthy all month long.</p>
+        <span>₹XX/month</span>
+      </div>
+    </div>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials">
-        <h2>What Our Customers Say</h2>
-        <div class="testimonial-slider">
-            <p>"This juice changed my mornings!" - Customer 1</p>
-            <p>"So fresh and organic. Love it!" - Customer 2</p>
-            <p>"The best daily health boost!" - Customer 3</p>
-        </div>
-        <div id="testimonials">
-            <h2>What Our Customers Say</h2>
-            <div class="testimonial active">"This juice changed my mornings!" - Customer 1</div>
-            <div class="testimonial">"So fresh and organic. Love it!" - Customer 2</div>
-            <div class="testimonial">"The best daily health boost!" - Customer 3</div>
-        </div>
-        
-    </section>
+    <!-- Delivery Radius Checker -->
+    <div class="radius-checker" data-aos="fade-up">
+      <input type="text" id="zip-code" placeholder="Enter ZIP code">
+      <button id="check-radius">Check Availability</button>
+    </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Get in Touch</h2>
-        <p>WhatsApp us for quick queries!</p>
-        <a href="https://wa.me/your-number" class="whatsapp-button">Chat on WhatsApp</a>
-    </section>
+  <!-- Testimonials -->
+  <section id="testimonials" class="testimonials-section">
+    <h2 data-aos="fade-up">What Our Customers Say</h2>
+    <div class="testimonial-slider">
+      <div class="testimonial active">"Best juice I've ever had!" - Customer 1</div>
+      <div class="testimonial">"Absolutely fresh and healthy!" - Customer 2</div>
+      <div class="testimonial">"A must-have for daily wellness!" - Customer 3</div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2025 Fresh Green Juice. All rights reserved.</p>
-    </footer>
+  <!-- Contact & WhatsApp Chat -->
+  <section id="contact" class="contact-section">
+    <h2 data-aos="fade-up">Get in Touch</h2>
+    <p data-aos="fade-up">Have questions? Chat with us!</p>
+    <a href="https://wa.me/your-number" class="whatsapp-button">Chat on WhatsApp</a>
+  </section>
 
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>© 2025 Fresh Green Juice. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>
