@@ -1,165 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fresh Green Juice</title>
-  <!-- External Styles & Icons -->
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <!-- AOS (Animate on Scroll) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emerald Elixir | Premium Green Juice Subscriptions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
 </head>
 <body>
-  <!-- Header & Navigation -->
-  <header class="glass-navbar">
-    <div class="container">
-      <div class="logo">🍃 Fresh Green Juice</div>
-      <nav>
-        <ul class="nav-list">
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#plans">Plans</a></li>
-          <li class="dropdown">
-            <a href="#">Our Services <i class="fa-solid fa-caret-down"></i></a>
-            <ul class="dropdown-menu">
-              <li><a href="#delivery">Delivery Availability</a></li>
-              <li><a href="#faq">FAQ</a></li>
-              <li><a href="#support">Support</a></li>
+    <!-- Top Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-text">Emerald Elixir</span>
+            </div>
+            
+            <div class="mobile-menu-toggle">
+                <div class="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="#home" class="active">Home</a></li>
+                <li class="dropdown-parent">
+                    <a href="#info-hub">Info Hub <i class="fas fa-caret-down"></i></a>
+                    <ul class="dropdown">
+                        <li><a href="#delivery">Delivery Check</a></li>
+                        <li><a href="#faqs">Subscription FAQs</a></li>
+                        <li><a href="#benefits">Health Benefits</a></li>
+                        <li><a href="#sustainability">Sustainability</a></li>
+                    </ul>
+                </li>
+                <li><a href="#products">Our Juices</a></li>
+                <li><a href="#about">Our Story</a></li>
+                <li><a href="#contact">Connect</a></li>
             </ul>
-          </li>
-          <li><a href="#testimonials">Our Happy Customers</a></li>
-          <li><a href="#contact">Connect</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero Section with Image Background -->
-  <section id="hero" class="hero-section" data-aos="fade-in">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1 class="animate__animated animate__fadeInDown">Pure. Fresh. Organic.</h1>
-      <p class="animate__animated animate__fadeInUp">
-        Experience nature’s bounty in every sip of our premium green juice. Fuel your day with vitality!
-      </p>
-      <a href="#plans" class="cta-button animate__animated animate__fadeInUp">Discover More</a>
-    </div>
-  </section>
-
-  <!-- Subscription Plans -->
-  <section id="plans" class="plans-section">
-    <div class="container">
-      <h2 data-aos="fade-up">Choose Your Plan</h2>
-      <div class="plans-container">
-        <div class="plan-card" data-aos="flip-left">
-          <h3>Daily Plan</h3>
-          <p>Enjoy fresh juice every morning.</p>
-          <span>₹XX/day</span>
+            
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
         </div>
-        <div class="plan-card" data-aos="flip-left">
-          <h3>Weekly Plan</h3>
-          <p>Juice delivered Monday to Friday.</p>
-          <span>₹XX/week</span>
-        </div>
-        <div class="plan-card" data-aos="flip-left">
-          <h3>Monthly Plan</h3>
-          <p>Stay healthy all month long.</p>
-          <span>₹XX/month</span>
-        </div>
-      </div>
-    </div>
-  </section>
+    </nav>
 
-  <!-- Delivery Availability (accessed via dropdown) -->
-  <section id="delivery" class="info-section">
-    <div class="container">
-      <h2 data-aos="fade-up">Delivery Availability</h2>
-      <p data-aos="fade-up">
-        We currently deliver to select regions. Enter your ZIP code below to see if you're in our service area.
-      </p>
-      <div class="radius-checker" data-aos="fade-up">
-        <input type="text" id="zip-code" placeholder="Enter ZIP code">
-        <button id="check-radius">Check Availability</button>
-      </div>
-    </div>
-  </section>
+    <!-- Main Content Container -->
+    <main class="content-container">
+        <!-- Immersive Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-background">
+                <div class="liquid-animation"></div>
+                <div class="juice-bubbles"></div>
+            </div>
+            
+            <div class="hero-content">
+                <h1 class="reveal-text">
+                    <span class="line">Nature's Power.</span>
+                    <span class="line">Bottled Fresh.</span>
+                    <span class="line">Delivered Daily.</span>
+                </h1>
+                
+                <div class="hero-image-container">
+                    <img src="images/bottle.png" alt="Premium Green Juice" class="floating-bottle">
+                    <div class="ingredients-scatter">
+                        <img src="images/beetroot.png" class="ingredient" alt="Ingredient 1">
+                        <img src="images/carrot.png" class="ingredient" alt="Ingredient 2">
+                        <img src="images/mint.png" class="ingredient" alt="Ingredient 3">
+                        <img src="images/mint.png" class="ingredient" alt="Ingredient 3">
+                        <img src="images/carrot.png" class="ingredient" alt="Ingredient 2">
+                        <img src="images/beetroot.png" class="ingredient" alt="Ingredient 1">
+                    </div>
+                </div>
+                
+                <div class="hero-cta">
+                    <button class="pulse-btn">Start Your Journey</button>
+                    <div class="scroll-indicator">
+                        <span>Scroll to explore</span>
+                        <div class="scroll-down"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- FAQ Section -->
-  <section id="faq" class="info-section">
-    <div class="container">
-      <h2 data-aos="fade-up">Frequently Asked Questions</h2>
-      <ul class="faq-list" data-aos="fade-up">
-        <li>
-          <strong>How is the juice made?</strong>  
-          Our juice is crafted from 100% organic ingredients using a cold-press process.
-        </li>
-        <li>
-          <strong>Can I customize my plan?</strong>  
-          Yes – choose from daily, weekly, or monthly subscriptions to suit your needs.
-        </li>
-        <li>
-          <strong>What is the delivery time?</strong>  
-          We ensure delivery within 24 hours of order confirmation.
-        </li>
-      </ul>
-    </div>
-  </section>
+        <!-- Horizontal Scrolling Benefits Section -->
+        <section class="horizontal-scroll-section">
+            <div class="scroll-container">
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>100% Organic</h3>
+                    <p>Sourced from certified organic farms with no pesticides or chemicals.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-tint"></i></div>
+                    <h3>Cold-Pressed</h3>
+                    <p>Maximum nutrient retention through our careful extraction process.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-truck"></i></div>
+                    <h3>Next-Day Delivery</h3>
+                    <p>From our facility to your doorstep within 24 hours.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-recycle"></i></div>
+                    <h3>Sustainable Packaging</h3>
+                    <p>Fully recyclable and biodegradable bottles and shipping materials.</p>
+                </div>
+            </div>
+        </section>
 
-  <!-- Support Section -->
-  <section id="support" class="info-section">
-    <div class="container">
-      <h2 data-aos="fade-up">Customer Support</h2>
-      <p data-aos="fade-up">
-        Our dedicated support team is here 24/7 to help with any inquiries.
-      </p>
-      <a href="mailto:support@freshgreenjuice.com" class="cta-button" data-aos="fade-up">Email Support</a>
-    </div>
-  </section>
+        <!-- Dynamic Testimonial Carousel -->
+        <section class="testimonials">
+            <h2 class="section-title">Transformative Results</h2>
+            <div class="testimonial-wrapper">
+                <div class="testimonial-container">
+                    <!-- Testimonials will rotate through here -->
+                    <div class="testimonial active">
+                        <div class="customer-image">
+                            <div class="image-outline"></div>
+                            <img src="images/woman.png" alt="Customer">
+                        </div>
+                        <div class="testimonial-content">
+                            <p>"I've tried numerous juice subscriptions, but Emerald Elixir stands out for its incredible freshness and the energy boost I get. My morning routine has never been better."</p>
+                            <h4>Sarah J.</h4>
+                            <div class="customer-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- More testimonials here -->
+                </div>
+                <div class="testimonial-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </section>
 
-  <!-- Testimonials -->
-  <section id="testimonials" class="testimonials-section">
-    <div class="container">
-      <h2 data-aos="fade-up">Our Happy Customers</h2>
-      <div class="testimonial-slider">
-        <div class="testimonial active">"Best juice I've ever had!" - Customer 1</div>
-        <div class="testimonial">"Absolutely fresh and healthy!" - Customer 2</div>
-        <div class="testimonial">"A must-have for daily wellness!" - Customer 3</div>
-      </div>
-    </div>
-  </section>
+        <!-- Updated Subscription Selection -->
+        <section class="subscription-selector" id="subscribe">
+            <h2 class="section-title">Choose Your Plan</h2>
+            <div class="subscription-plans">
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h3>One-Time Purchase</h3>
+                        <div class="plan-price">
+                            <span class="price">$29</span>
+                            <span class="period">per order</span>
+                        </div>
+                    </div>
+                    <div class="plan-content">
+                        <img src="images/bottle.png" alt="Green Juice" class="plan-image">
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> 6 bottles (16oz each)</li>
+                            <li><i class="fas fa-check"></i> Free shipping</li>
+                            <li><i class="fas fa-check"></i> No commitment</li>
+                        </ul>
+                        <button class="plan-button">Order Now</button>
+                    </div>
+                </div>
+                
+                <div class="plan-card featured">
+                    <div class="plan-badge">Most Popular</div>
+                    <div class="plan-header">
+                        <h3>Weekly Delivery</h3>
+                        <div class="plan-price">
+                            <span class="price">$25</span>
+                            <span class="period">per week</span>
+                        </div>
+                    </div>
+                    <div class="plan-content">
+                        <img src="images/bottle.png" alt="Green Juice" class="plan-image">
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> 6 bottles weekly</li>
+                            <li><i class="fas fa-check"></i> 15% savings</li>
+                            <li><i class="fas fa-check"></i> Skip or cancel anytime</li>
+                            <li><i class="fas fa-check"></i> Free priority shipping</li>
+                        </ul>
+                        <button class="plan-button">Subscribe Weekly</button>
+                    </div>
+                </div>
+                
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h3>Monthly Box</h3>
+                        <div class="plan-price">
+                            <span class="price">$89</span>
+                            <span class="period">per month</span>
+                        </div>
+                    </div>
+                    <div class="plan-content">
+                        <img src="images/bottle.png" alt="Green Juice" class="plan-image">
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> 24 bottles monthly</li>
+                            <li><i class="fas fa-check"></i> 25% savings</li>
+                            <li><i class="fas fa-check"></i> Free wellness guide</li>
+                            <li><i class="fas fa-check"></i> VIP customer support</li>
+                        </ul>
+                        <button class="plan-button">Subscribe Monthly</button>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- Connect (Contact) Section -->
-  <section id="contact" class="contact-section">
-    <div class="container">
-      <h2 data-aos="fade-up">Connect With Us</h2>
-      <p data-aos="fade-up">
-        We'd love to hear from you. Reach out via WhatsApp, email, or give us a call.
-      </p>
-      <div class="contact-details" data-aos="fade-up">
-        <a href="https://wa.me/your-number" class="cta-button">Chat on WhatsApp</a>
-        <p>Email: <a href="mailto:info@freshgreenjuice.com">info@freshgreenjuice.com</a></p>
-        <p>Phone: +91 1234567890</p>
-      </div>
-      <div class="social-media" data-aos="fade-up">
-        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#"><i class="fa-brands fa-twitter"></i></a>
-      </div>
-    </div>
-  </section>
+        <!-- Unique Footer -->
+        <footer>
+            <div class="footer-wave">
+                <!-- SVG wave animation here -->
+            </div>
+            
+            <div class="footer-content">
+                <div class="footer-grid">
+                    <div class="grid-item contact-channels">
+                        <h3>Connect With Us</h3>
+                        <div class="channel">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>WhatsApp Support</span>
+                        </div>
+                        <div class="channel">
+                            <i class="far fa-envelope"></i>
+                            <span>hello@emeraldelixir.com</span>
+                        </div>
+                        <div class="channel">
+                            <i class="fas fa-headset"></i>
+                            <span>1-800-GREEN-JUICE</span>
+                        </div>
+                    </div>
+                    
+                    <div class="grid-item quick-links">
+                        <h3>Quick Access</h3>
+                        <ul>
+                            <li><a href="#faqs">Common Questions</a></li>
+                            <li><a href="#plans">Subscription Plans</a></li>
+                            <li><a href="#stories">Success Stories</a></li>
+                            <li><a href="#blog">Wellness Journal</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="grid-item newsletter">
+                        <h3>Join Our Community</h3>
+                        <p>Get exclusive offers, wellness tips, and new flavor announcements.</p>
+                        <div class="newsletter-form">
+                            <input type="email" placeholder="Your email address">
+                            <button type="submit">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mission-statement">
+                    <p>Emerald Elixir is committed to sustainable farming practices, zero-waste packaging solutions, and the overall wellbeing of our community and planet.</p>
+                </div>
+                
+                <div class="footer-bottom">
+                    <div class="copyright">
+                        <p>&copy; 2023 Emerald Elixir. All rights reserved.</p>
+                    </div>
+                    <div class="legal-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <p>© 2025 Fresh Green Juice. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="script.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
+    <script src="scripts.js"></script>
 </body>
 </html>
