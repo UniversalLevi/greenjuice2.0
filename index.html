@@ -10,6 +10,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
 </head>
 <body>
+    <!-- Add this right after the opening body tag -->
+    <div class="scroll-progress-indicator"></div>
+
     <!-- Top Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
@@ -17,32 +20,28 @@
                 <span class="logo-text">Emerald Elixir</span>
             </div>
             
-            <div class="mobile-menu-toggle">
-                <div class="hamburger">
-                    <span></span><span></span><span></span>
+            <div class="right-nav">
+                <ul class="nav-menu">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#products">Our Juices</a></li>
+                    <li class="dropdown-parent">
+                        <a href="#more">More <i class="fas fa-caret-down"></i></a>
+                        <div class="dropdown">
+                            <a href="#delivery">Delivery Check</a>
+                            <a href="#faqs">Subscription FAQs</a>
+                            <a href="#benefits">Health Benefits</a>
+                            <a href="#sustainability">Sustainability</a>
+                            <a href="#about">Our Story</a>
+                            <a href="#contact">Connect</a>
+                        </div>
+                    </li>
+                </ul>
+                <a href="#subscribe" class="nav-cta">Subscribe</a>
+                <div class="mobile-menu-toggle">
+                    <div class="hamburger">
+                        <span></span><span></span><span></span>
+                    </div>
                 </div>
-            </div>
-            
-            <ul class="nav-menu">
-                <li><a href="#home" class="active">Home</a></li>
-                <li class="dropdown-parent">
-                    <a href="#info-hub">Info Hub <i class="fas fa-caret-down"></i></a>
-                    <ul class="dropdown">
-                        <li><a href="#delivery">Delivery Check</a></li>
-                        <li><a href="#faqs">Subscription FAQs</a></li>
-                        <li><a href="#benefits">Health Benefits</a></li>
-                        <li><a href="#sustainability">Sustainability</a></li>
-                    </ul>
-                </li>
-                <li><a href="#products">Our Juices</a></li>
-                <li><a href="#about">Our Story</a></li>
-                <li><a href="#contact">Connect</a></li>
-            </ul>
-            
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-tiktok"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
             </div>
         </div>
     </nav>
@@ -66,21 +65,17 @@
                 <div class="hero-image-container">
                     <img src="images/bottle.png" alt="Premium Green Juice" class="floating-bottle">
                     <div class="ingredients-scatter">
-                        <img src="images/beetroot.png" class="ingredient" alt="Ingredient 1">
-                        <img src="images/carrot.png" class="ingredient" alt="Ingredient 2">
-                        <img src="images/mint.png" class="ingredient" alt="Ingredient 3">
-                        <img src="images/mint.png" class="ingredient" alt="Ingredient 3">
-                        <img src="images/carrot.png" class="ingredient" alt="Ingredient 2">
-                        <img src="images/beetroot.png" class="ingredient" alt="Ingredient 1">
+                        <img src="images/beetroot.png" class="ingredient" alt="Beetroot">
+                        <img src="images/carrot.png" class="ingredient" alt="Carrot">
+                        <img src="images/mint.png" class="ingredient" alt="Mint">
+                        <img src="images/anaar.png" class="ingredient" alt="Pomegranate">
+                        <img src="images/apple.png" class="ingredient" alt="Apple">
+                        <img src="images/orange.png" class="ingredient" alt="Orange">
                     </div>
                 </div>
                 
                 <div class="hero-cta">
                     <button class="pulse-btn">Start Your Journey</button>
-                    <div class="scroll-indicator">
-                        <span>Scroll to explore</span>
-                        <div class="scroll-down"></div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -88,6 +83,7 @@
         <!-- Horizontal Scrolling Benefits Section -->
         <section class="horizontal-scroll-section">
             <div class="scroll-container">
+                <!-- First set of benefit cards -->
                 <div class="benefit-card">
                     <div class="benefit-icon"><i class="fas fa-leaf"></i></div>
                     <h3>100% Organic</h3>
@@ -108,6 +104,38 @@
                     <h3>Sustainable Packaging</h3>
                     <p>Fully recyclable and biodegradable bottles and shipping materials.</p>
                 </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-heart"></i></div>
+                    <h3>Health Focused</h3>
+                    <p>Nutrient-dense formulations to support your optimal wellbeing.</p>
+                </div>
+                
+                <!-- Duplicate cards for infinite scrolling effect -->
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>100% Organic</h3>
+                    <p>Sourced from certified organic farms with no pesticides or chemicals.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-tint"></i></div>
+                    <h3>Cold-Pressed</h3>
+                    <p>Maximum nutrient retention through our careful extraction process.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-truck"></i></div>
+                    <h3>Next-Day Delivery</h3>
+                    <p>From our facility to your doorstep within 24 hours.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-recycle"></i></div>
+                    <h3>Sustainable Packaging</h3>
+                    <p>Fully recyclable and biodegradable bottles and shipping materials.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-heart"></i></div>
+                    <h3>Health Focused</h3>
+                    <p>Nutrient-dense formulations to support your optimal wellbeing.</p>
+                </div>
             </div>
         </section>
 
@@ -115,12 +143,16 @@
         <section class="testimonials">
             <h2 class="section-title">Transformative Results</h2>
             <div class="testimonial-wrapper">
+                <div class="testimonial-navigation">
+                    <button class="nav-arrow prev-testimonial"><i class="fas fa-chevron-left"></i></button>
+                </div>
+                
                 <div class="testimonial-container">
-                    <!-- Testimonials will rotate through here -->
+                    <!-- Testimonial 1 -->
                     <div class="testimonial active">
                         <div class="customer-image">
                             <div class="image-outline"></div>
-                            <img src="images/woman.png" alt="Customer">
+                            <img src="images/woman.jpg" alt="Customer">
                         </div>
                         <div class="testimonial-content">
                             <p>"I've tried numerous juice subscriptions, but Emerald Elixir stands out for its incredible freshness and the energy boost I get. My morning routine has never been better."</p>
@@ -131,21 +163,58 @@
                             </div>
                         </div>
                     </div>
-                    <!-- More testimonials here -->
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial">
+                        <div class="customer-image">
+                            <div class="image-outline"></div>
+                            <img src="images/man.jpg" alt="Customer">
+                        </div>
+                        <div class="testimonial-content">
+                            <p>"Since starting my subscription, I've noticed improved energy levels and better digestion. The convenience of having fresh juice delivered keeps me consistent with my health goals."</p>
+                            <h4>Michael T.</h4>
+                            <div class="customer-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial">
+                        <div class="customer-image">
+                            <div class="image-outline"></div>
+                            <img src="images/woman.jpg" alt="Customer">
+                        </div>
+                        <div class="testimonial-content">
+                            <p>"The quality and taste are unmatched! As a busy professional, having these nutrient-packed juices delivered has been a game-changer for my wellness journey."</p>
+                            <h4>Emily R.</h4>
+                            <div class="customer-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="testimonial-dots">
-                    <span class="dot active"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
+                
+                <div class="testimonial-navigation">
+                    <button class="nav-arrow next-testimonial"><i class="fas fa-chevron-right"></i></button>
                 </div>
+            </div>
+            
+            <div class="testimonial-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
             </div>
         </section>
 
-        <!-- Updated Subscription Selection -->
+        <!-- Updated Subscription Selection with Rearranged Plans -->
         <section class="subscription-selector" id="subscribe">
             <h2 class="section-title">Choose Your Plan</h2>
             <div class="subscription-plans">
-                <div class="plan-card">
+                <!-- One-Time Purchase (Left) -->
+                <div class="plan-card one-time">
                     <div class="plan-header">
                         <h3>One-Time Purchase</h3>
                         <div class="plan-price">
@@ -154,17 +223,21 @@
                         </div>
                     </div>
                     <div class="plan-content">
-                        <img src="images/bottle.png" alt="Green Juice" class="plan-image">
+                        <div class="plan-image-container">
+                            <img src="images/bottle.png" alt="Green Juice" class="plan-bottle">
+                        </div>
                         <ul class="plan-features">
                             <li><i class="fas fa-check"></i> 6 bottles (16oz each)</li>
                             <li><i class="fas fa-check"></i> Free shipping</li>
                             <li><i class="fas fa-check"></i> No commitment</li>
+                            <li><i class="fas fa-check"></i> Try before subscribing</li>
                         </ul>
                         <button class="plan-button">Order Now</button>
                     </div>
                 </div>
                 
-                <div class="plan-card featured">
+                <!-- Weekly Plan (Middle - Featured) -->
+                <div class="plan-card featured weekly">
                     <div class="plan-badge">Most Popular</div>
                     <div class="plan-header">
                         <h3>Weekly Delivery</h3>
@@ -174,7 +247,11 @@
                         </div>
                     </div>
                     <div class="plan-content">
-                        <img src="images/bottle.png" alt="Green Juice" class="plan-image">
+                        <div class="plan-image-container">
+                            <img src="images/bottle.png" alt="Green Juice" class="plan-bottle">
+                            <img src="images/bottle.png" alt="Green Juice" class="plan-bottle">
+                            <img src="images/bottle.png" alt="Green Juice" class="plan-bottle">
+                        </div>
                         <ul class="plan-features">
                             <li><i class="fas fa-check"></i> 6 bottles weekly</li>
                             <li><i class="fas fa-check"></i> 15% savings</li>
@@ -185,7 +262,8 @@
                     </div>
                 </div>
                 
-                <div class="plan-card">
+                <!-- Monthly Plan (Right) -->
+                <div class="plan-card monthly">
                     <div class="plan-header">
                         <h3>Monthly Box</h3>
                         <div class="plan-price">
@@ -194,7 +272,12 @@
                         </div>
                     </div>
                     <div class="plan-content">
-                        <img src="images/bottle.png" alt="Green Juice" class="plan-image">
+                        <div class="plan-image-container">
+                            <img src="images/bottle.png" alt="Green Juice" class="plan-bottle">
+                            <img src="images/bottle.png" alt="Green Juice" class="plan-bottle">
+                            <img src="images/bottle.png" alt="Green Juice" class="plan-bottle">
+                            <img src="images/bottle.png" alt="Green Juice" class="plan-bottle">
+                        </div>
                         <ul class="plan-features">
                             <li><i class="fas fa-check"></i> 24 bottles monthly</li>
                             <li><i class="fas fa-check"></i> 25% savings</li>
@@ -207,7 +290,7 @@
             </div>
         </section>
 
-        <!-- Unique Footer -->
+        <!-- Footer remains the same -->
         <footer>
             <div class="footer-wave">
                 <!-- SVG wave animation here -->
@@ -269,6 +352,13 @@
             </div>
         </footer>
     </main>
+
+    <!-- Social Media Sidebar -->
+    <div class="social-sidebar">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
 
     <script src="scripts.js"></script>
 </body>

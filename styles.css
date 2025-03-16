@@ -47,6 +47,7 @@ body {
 .logo {
   display: flex;
   align-items: center;
+  margin-right: auto;
 }
 
 .logo-text {
@@ -54,6 +55,12 @@ body {
   font-size: 24px;
   color: var(--neon-green);
   letter-spacing: 1px;
+}
+
+.right-nav {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
 }
 
 .nav-menu {
@@ -89,10 +96,10 @@ body {
 .dropdown {
   position: absolute;
   top: 100%;
-  left: 0;
+  right: 0;
   min-width: 200px;
   background-color: rgba(16, 42, 26, 0.95);
-  border-radius: 0 0 5px 5px;
+  border-radius: 5px;
   visibility: hidden;
   opacity: 0;
   transform: translateY(10px);
@@ -100,6 +107,21 @@ body {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   z-index: 1001;
   padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown a {
+  color: var(--cream);
+  text-decoration: none;
+  padding: 10px 20px;
+  transition: var(--transition);
+  display: block;
+}
+
+.dropdown a:hover {
+  background-color: rgba(30, 74, 51, 0.7);
+  color: var(--neon-green);
 }
 
 .dropdown-parent:hover .dropdown {
@@ -108,51 +130,52 @@ body {
   transform: translateY(0);
 }
 
-.dropdown li {
-  margin: 0;
-  width: 100%;
+.nav-cta {
+  background-color: var(--light-green);
+  color: var(--dark-green);
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 15px;
+  transition: var(--transition);
 }
 
-.dropdown a {
-  padding: 10px 20px;
-  font-size: 14px;
-  display: block;
+.nav-cta:hover {
+  background-color: var(--neon-green);
+  transform: translateY(-2px);
 }
 
-.dropdown a:hover {
-  background-color: rgba(30, 74, 51, 0.7);
+/* Social Sidebar */
+.social-sidebar {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 99;
 }
 
-.social-icons {
+.social-sidebar a {
   display: flex;
   align-items: center;
-}
-
-.social-icons a {
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--medium-green);
   color: var(--cream);
-  margin-left: 15px;
-  font-size: 18px;
+  border-radius: 50%;
   transition: var(--transition);
+  opacity: 0.5;
 }
 
-.social-icons a:hover {
-  color: var(--neon-green);
-  transform: translateY(-3px);
-}
-
-.mobile-menu-toggle {
-  display: none;
-  cursor: pointer;
-}
-
-.hamburger span {
-  display: block;
-  width: 25px;
-  height: 3px;
-  margin-bottom: 5px;
-  background-color: var(--neon-green);
-  border-radius: 3px;
-  transition: var(--transition);
+.social-sidebar a:hover {
+  background-color: var(--light-green);
+  color: var(--dark-green);
+  transform: scale(1.1);
+  opacity: 1;
 }
 
 /* Main Content Container */
@@ -181,23 +204,58 @@ body {
 
 .liquid-animation {
   position: absolute;
-  bottom: -5px;
-  left: 0;
   width: 100%;
-  height: 200px;
-  background: linear-gradient(to bottom, transparent, var(--light-green) 70%);
-  transform-origin: bottom;
-  animation: wave 15s infinite linear;
-  opacity: 0.2;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    var(--neon-green) 0%,
+    var(--light-green) 25%,
+    var(--medium-green) 50%,
+    var(--dark-green) 75%,
+    var(--darkest-green) 100%
+  );
+  background-size: 400% 400%;
+  animation: gradientFlow 15s ease infinite;
+  opacity: 0.6;
+  z-index: -1;
 }
 
 .juice-bubbles {
   position: absolute;
   width: 100%;
   height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.2) 2px, transparent 2px),
+    radial-gradient(circle at 40% 70%, rgba(255, 255, 255, 0.1) 4px, transparent 4px),
+    radial-gradient(circle at 60% 40%, rgba(255, 255, 255, 0.2) 3px, transparent 3px),
+    radial-gradient(circle at 80% 60%, rgba(255, 255, 255, 0.1) 5px, transparent 5px);
+  background-size: 400px 400px;
+  animation: bubbleRise 30s linear infinite;
+  z-index: -1;
+  opacity: 0.7;
 }
 
-/* Creating artificial bubbles with pseudo-elements */
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes bubbleRise {
+  0% {
+    background-position: 0px 400px;
+  }
+  100% {
+    background-position: 400px 0px;
+  }
+}
+
 .juice-bubbles::before,
 .juice-bubbles::after {
   content: '';
@@ -299,10 +357,10 @@ body {
 .floating-bottle {
   height: 100%;
   max-height: 400px;
-  animation: float 6s infinite ease-in-out;
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
   object-fit: contain;
   max-width: 100%;
+  animation: none;
 }
 
 .ingredients-scatter {
@@ -313,14 +371,32 @@ body {
   left: 0;
 }
 
+/* Fixed ingredients animation */
 .ingredient {
   position: absolute;
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   object-fit: contain;
   opacity: 0;
-  animation: scatter 10s infinite ease-out;
   filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.2));
+  animation: ingredientFloat 10s infinite ease-out;
+}
+
+@keyframes ingredientFloat {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(100px, -100px) rotate(360deg);
+    opacity: 0;
+  }
 }
 
 .ingredient:nth-child(1) {
@@ -365,7 +441,17 @@ body {
   transform: rotate(45deg);
 }
 
+.ingredient:nth-child(6) {
+  top: 40%;
+  right: 10%;
+  animation-delay: 5.5s;
+  width: 75px;
+  height: 75px;
+}
+
 .hero-cta {
+  position: relative;
+  z-index: 10;
   margin-top: 30px;
 }
 
@@ -427,83 +513,85 @@ body {
   animation: scrollDot 2s infinite;
 }
 
-/* Horizontal Scrolling Benefits Section */
+/* Fixed Horizontal Scrolling Section */
 .horizontal-scroll-section {
   position: relative;
-  height: 600px; /* Increase height if needed */
-  overflow: hidden;
+  height: auto;
+  min-height: 600px;
   background-color: var(--medium-green);
-  padding: 50px 0;
+  padding: 80px 0;
+  overflow: hidden;
 }
 
 .scroll-container {
   display: flex;
-  position: absolute;
-  left: 0;
-  transition: transform 0.5s ease-out; /* Make this smoother */
-  padding: 0 10vw;
-  /* Remove width constraint to allow more movement */
-}
-
-/* Add this new animation for enhanced scrolling */
-@keyframes horizontalScroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-100% + 100vw));
-  }
-}
-
-/* Add these new styles for enhanced animation */
-.scroll-container.animated {
-  animation: horizontalScroll 20s linear infinite alternate;
-  animation-play-state: paused;
-}
-
-.scroll-container.animated.playing {
-  animation-play-state: running;
+  padding: 20px 0;
+  position: relative;
+  width: max-content;
+  animation: scrollLeftToRight 30s linear infinite;
+  will-change: transform;
 }
 
 .benefit-card {
-  flex: 0 0 350px;
-  height: 500px;
-  margin: 0 20px;
+  flex: 0 0 300px;
+  height: 450px;
   background-color: var(--dark-green);
   border-radius: 15px;
-  padding: 40px;
+  padding: 40px 30px;
+  margin: 0 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-  /* Add transform origin for better rotation */
-  transform-origin: center center;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Enhanced hover effect */
-.benefit-card:hover {
-  transform: translateY(-15px) scale(1.05);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  z-index: 10;
+/* Fix alignment between card groups */
+.benefit-card + .benefit-card {
+  margin-top: 0; /* Ensure no top margin between cards */
+}
+
+/* Ensure all cards are aligned at the same height */
+.scroll-container::before,
+.scroll-container::after {
+  content: '';
+  display: block;
+  height: 100%;
+}
+
+@keyframes scrollLeftToRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-300px * 5 - 40px * 5)); /* Width of 5 cards + margins */
+  }
 }
 
 .benefit-card::before {
   content: '';
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(124, 255, 74, 0.1) 0%, transparent 60%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--light-green) 0%, transparent 80%);
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.4s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .benefit-card:hover::before {
-  opacity: 1;
+  opacity: 0.1;
 }
 
 .benefit-icon {
@@ -563,25 +651,34 @@ body {
 }
 
 .testimonial-wrapper {
+  display: flex;
+  align-items: center;
   max-width: 1000px;
   margin: 0 auto;
   position: relative;
 }
 
 .testimonial-container {
-  height: 400px;
+  flex-grow: 1;
   position: relative;
+  overflow: hidden;
+  height: 400px;
 }
 
 .testimonial {
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  background-color: var(--medium-green);
+  border-radius: 15px;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  display: flex;
+  height: 100%;
   opacity: 0;
   transform: translateX(50px);
-  transition: all 0.5s ease;
+  transition: opacity 0.8s ease, transform 0.8s ease, visibility 0.8s ease;
   visibility: hidden;
 }
 
@@ -592,27 +689,59 @@ body {
 }
 
 .customer-image {
-  flex: 0 0 200px;
+  flex: 0 0 150px;
+  height: 150px;
   position: relative;
-  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 30px;
+  transition: transform 0.8s ease, opacity 0.8s ease;
 }
 
 .image-outline {
   position: absolute;
-  top: -10px;
-  left: -10px;
-  width: calc(100% + 20px);
-  height: calc(100% + 20px);
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
   border: 2px solid var(--neon-green);
   border-radius: 50%;
-  animation: rotate 15s linear infinite;
+  animation: pulse 3s infinite;
 }
 
 .customer-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   border-radius: 50%;
+}
+
+.testimonial-navigation {
+  flex: 0 0 auto;
+  margin: 0 10px;
+}
+
+.nav-arrow {
+  background: none;
+  border: none;
+  color: var(--cream);
+  font-size: 24px;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--dark-green);
+  transition: var(--transition);
+}
+
+.nav-arrow:hover {
+  background-color: var(--light-green);
+  color: var(--dark-green);
+  transform: scale(1.1);
 }
 
 .testimonial-content {
@@ -621,6 +750,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  transition: transform 0.8s ease 0.1s, opacity 0.8s ease 0.1s;
 }
 
 .testimonial-content p {
@@ -892,44 +1022,6 @@ footer {
 }
 
 /* Animations - Optimized for smoothness */
-@keyframes wave {
-  0% {
-      transform: translateX(-50%) scaleY(1);
-  }
-  50% {
-      transform: translateX(0%) scaleY(0.8);
-  }
-  100% {
-      transform: translateX(50%) scaleY(1);
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-      transform: translateY(0);
-  }
-  50% {
-      transform: translateY(-20px);
-  }
-}
-
-@keyframes scatter {
-  0% {
-      transform: translate(0, 0) rotate(0deg);
-      opacity: 0;
-  }
-  10% {
-      opacity: 0.8;
-  }
-  90% {
-      opacity: 0.8;
-  }
-  100% {
-      transform: translate(100px, -100px) rotate(360deg);
-      opacity: 0;
-  }
-}
-
 @keyframes reveal {
   0% {
       transform: translateY(100%);
@@ -981,35 +1073,6 @@ footer {
   }
 }
 
-@keyframes scrollRight {
-  0% {
-      transform: translate(0, -50%);
-  }
-  100% {
-      transform: translate(calc(-50% + 50vw), -50%);
-  }
-}
-
-@keyframes rotate {
-  from {
-      transform: rotate(0deg);
-  }
-  to {
-      transform: rotate(360deg);
-  }
-}
-
-@keyframes ripple {
-  0% {
-      transform: scale(0);
-      opacity: 0.5;
-  }
-  100% {
-      transform: scale(4);
-      opacity: 0;
-  }
-}
-
 /* Additional class for elements that come into view */
 .in-view {
   animation: fadeIn 1s ease forwards;
@@ -1023,85 +1086,30 @@ footer {
 }
 
 @media (max-width: 992px) {
-  .testimonial {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-  }
-  
-  .testimonial-content {
-      padding-left: 0;
-      padding-top: 30px;
-  }
-  
-  .customer-image {
-      flex: 0 0 150px;
-      height: 150px;
-  }
-  
   .nav-menu {
-      display: none;
+    position: absolute;
+    background-color: var(--dark-green);
+    top: 80px;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px 0;
+    z-index: 1000;
   }
   
-  .nav-menu.active {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      top: 80px;
-      left: 0;
-      width: 100%;
-      background-color: var(--dark-green);
-      padding: 20px 0;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  .horizontal-scroll-section {
+    padding: 60px 0;
   }
   
-  .nav-menu.active li {
-      margin: 10px 30px;
-  }
-  
-  .dropdown {
-      position: static;
-      background-color: transparent;
-      box-shadow: none;
-      padding-left: 20px;
-      height: 0;
-      visibility: visible;
-      opacity: 1;
-      transform: none;
-      overflow: hidden;
-      transition: height 0.3s ease;
-  }
-  
-  .dropdown-parent.active .dropdown {
-      height: auto;
-      margin-top: 10px;
-  }
-  
-  .dropdown a:hover {
-      background-color: transparent;
-  }
-  
-  .mobile-menu-toggle {
-      display: block;
-  }
-  
-  .social-icons {
-      margin-left: auto;
-  }
-  
-  .option-cards {
-      flex-direction: column;
-      align-items: center;
+  .benefit-card {
+    height: 400px;
+    padding: 30px 20px;
   }
 }
 
 @media (max-width: 768px) {
   .reveal-text .line {
       font-size: 2rem;
-  }
-  
-  .social-icons {
-      display: none;
   }
   
   .footer-grid {
@@ -1126,25 +1134,13 @@ footer {
   }
   
   .ingredient {
-      width: 60px;
-      height: 60px;
+      width: 60px !important;
+      height: 60px !important;
   }
   
-  .ingredient:nth-child(1),
-  .ingredient:nth-child(4) {
-      width: 50px;
-      height: 50px;
-  }
-  
-  .ingredient:nth-child(2),
-  .ingredient:nth-child(5) {
-      width: 65px;
-      height: 65px;
-  }
-  
-  .ingredient:nth-child(3) {
-      width: 45px;
-      height: 45px;
+  .testimonial-container {
+      height: auto;
+      min-height: 450px;
   }
 }
 
@@ -1166,89 +1162,60 @@ footer {
       font-size: 2rem;
   }
   
-  .benefit-card {
-      width: 300px;
-      height: 450px;
-      padding: 30px;
+  .testimonial {
+      padding: 20px;
   }
   
   .customer-image {
-      flex: 0 0 120px;
-      height: 120px;
-  }
-  
-  .testimonial-content p {
-      font-size: 1rem;
-  }
-  
-  .ingredient {
-      width: 50px;
-      height: 50px;
-  }
-  
-  .ingredient:nth-child(1),
-  .ingredient:nth-child(4) {
-      width: 40px;
-      height: 40px;
-  }
-  
-  .ingredient:nth-child(2),
-  .ingredient:nth-child(5) {
-      width: 55px;
-      height: 55px;
-  }
-  
-  .ingredient:nth-child(3) {
-      width: 35px;
-      height: 35px;
+      flex: 0 0 100px;
+      height: 100px;
   }
 }
 
-/* Subscription Plans Styling */
+/* Enhanced Subscription Plans */
 .subscription-plans {
   display: flex;
   justify-content: center;
-  gap: 30px;
-  margin-top: 50px;
+  gap: 40px;
   flex-wrap: wrap;
+  margin-top: 60px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
 }
 
 .plan-card {
+  flex: 0 0 350px;
+  height: 620px; /* Increased height for more content */
   background-color: var(--dark-green);
-  border-radius: 15px;
-  width: 320px;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              box-shadow 0.4s ease;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
 }
 
-.plan-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-}
-
-.plan-badge {
-  position: absolute;
-  top: 20px;
-  right: 0;
-  background-color: var(--neon-green);
-  color: var(--dark-green);
-  padding: 8px 15px;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 4px 0 0 4px;
+.plan-card.featured {
+  height: 640px; /* Slightly taller */
 }
 
 .plan-header {
-  background-color: var(--medium-green);
+  background-color: rgba(0, 0, 0, 0.2);
   padding: 25px 20px;
   text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative; /* For badge positioning */
 }
 
 .plan-header h3 {
-  margin-bottom: 10px;
   font-size: 24px;
+  margin: 0 0 15px;
+  color: var(--light-green);
 }
 
 .plan-price {
@@ -1258,87 +1225,204 @@ footer {
 }
 
 .price {
-  font-size: 36px;
+  font-size: 42px;
   font-weight: 700;
-  color: var(--neon-green);
+  color: white;
 }
 
 .period {
-  font-size: 14px;
-  opacity: 0.8;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 5px;
 }
 
 .plan-content {
-  padding: 30px 20px;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 35px 25px;
+  position: relative;
 }
 
-.plan-image {
-  height: 120px;
-  margin-bottom: 20px;
+/* Fixed bottle container with better spacing */
+.plan-image-container {
+  position: relative;
+  height: 180px; /* Increased height */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0 30px;
+  overflow: visible; /* Allow bottles to overflow */
+}
+
+/* Basic bottle animation */
+.plan-bottle {
+  position: absolute;
+  height: 140px;
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
   transition: transform 0.3s ease;
+  animation-name: floatBottle;
+  animation-duration: 4s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  will-change: transform;
 }
 
-.plan-card:hover .plan-image {
-  transform: translateY(-5px) scale(1.05);
+@keyframes floatBottle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
+/* One-time purchase bottles - spaced better */
+.one-time .plan-bottle:nth-child(1) {
+  transform: translateX(0);
+  animation-delay: 0s;
+  z-index: 3;
+}
+
+/* Weekly plan bottles - spaced better */
+.weekly .plan-bottle:nth-child(1) {
+  transform: translateX(-50px) rotate(-5deg);
+  animation-delay: 0.2s;
+}
+
+.weekly .plan-bottle:nth-child(2) {
+  transform: translateX(0) rotate(0deg);
+  animation-delay: 0.5s;
+  z-index: 3;
+}
+
+.weekly .plan-bottle:nth-child(3) {
+  transform: translateX(50px) rotate(5deg);
+  animation-delay: 0.8s;
+}
+
+/* Monthly plan bottles - spaced better */
+.monthly .plan-bottle:nth-child(1) {
+  transform: translateX(-75px) rotate(-8deg) scale(0.9);
+  animation-delay: 0.1s;
+}
+
+.monthly .plan-bottle:nth-child(2) {
+  transform: translateX(-25px) rotate(-4deg) scale(0.95);
+  animation-delay: 0.4s;
+}
+
+.monthly .plan-bottle:nth-child(3) {
+  transform: translateX(25px) rotate(4deg) scale(0.95);
+  animation-delay: 0.7s;
+}
+
+.monthly .plan-bottle:nth-child(4) {
+  transform: translateX(75px) rotate(8deg) scale(0.9);
+  animation-delay: 1s;
+}
+
+/* Better font sizes and spacing for plan features */
 .plan-features {
   list-style: none;
-  margin: 0 0 30px 0;
   padding: 0;
+  margin: 0 0 30px;
   width: 100%;
 }
 
 .plan-features li {
-  margin-bottom: 12px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  line-height: 1.4;
 }
 
 .plan-features i {
-  color: var(--light-green);
+  color: var(--neon-green);
   margin-right: 10px;
-}
-
-.plan-button {
-  background-color: var(--light-green);
-  color: var(--dark-green);
-  border: none;
-  border-radius: 30px;
-  padding: 12px 30px;
   font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  width: 100%;
+  margin-top: 3px; /* Align with text properly */
+  flex-shrink: 0;
 }
 
-.plan-button:hover {
-  background-color: var(--neon-green);
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(124, 255, 74, 0.4);
+/* Ensure button is at the bottom with proper spacing */
+.plan-button {
+  margin-top: auto;
+  margin-bottom: 10px;
 }
 
-.featured {
-  transform: scale(1.05);
-  z-index: 2;
+/* Make sure content doesn't overflow in mobile */
+@media (max-width: 992px) {
+  .plan-card, .plan-card.featured {
+    height: auto;
+    min-height: 600px;
+  }
+  
+  .plan-image-container {
+    height: 160px;
+  }
+  
+  .plan-bottle {
+    height: 120px;
+  }
+  
+  /* Adjust bottle positions for smaller screens */
+  .monthly .plan-bottle:nth-child(1) {
+    transform: translateX(-60px) rotate(-5deg) scale(0.85);
+  }
+  
+  .monthly .plan-bottle:nth-child(4) {
+    transform: translateX(60px) rotate(5deg) scale(0.85);
+  }
 }
 
-.featured:hover {
-  transform: scale(1.05) translateY(-10px);
+@media (max-width: 768px) {
+  .plan-image-container {
+    height: 150px;
+  }
 }
 
-.featured .plan-header {
-  background-color: #2B6145;
+/* Fixed Page Scroller */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
-.featured .plan-button {
-  background-color: var(--neon-green);
+::-webkit-scrollbar-track {
+  background: rgba(16, 42, 26, 0.1);
+  border-radius: 10px;
 }
 
-.featured .plan-button:hover {
-  background-color: #90FF6A;
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--light-green), var(--neon-green));
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, var(--neon-green), var(--light-green));
+}
+
+/* Removed arrow buttons from scrollbar */
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* Fixed scroll progress indicator */
+.scroll-progress-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(to right, var(--light-green), var(--neon-green));
+  z-index: 1000;
+  transition: width 0.1s ease;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  box-shadow: 0 0 8px rgba(var(--neon-green-rgb), 0.5);
 }
